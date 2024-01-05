@@ -1,24 +1,24 @@
-# py3gdb
-Python3 extension for the [GNU project debugger (GDB)](https://www.gnu.org/software/gdb/)
+# pygdb
+Python extension for the [GNU project debugger (GDB)](https://www.gnu.org/software/gdb/)
 
 ## Introduction
 
-This package provides a set of tools for debugging python3 code with GDB, including python3 code breakpoints.
-GDB breakpoints operate on native shared libraries (C/assembler code). Since Python is an interpreted language it's not possible to set python3 code breakpoints directly from the GDB console.
-In this package python3 code breakpoints are supported by utilizing a python-c-extension breakpoint-mark function which is accessible from the GDB console. This method requires
-that python3 code breakpoints are set explictly in the python3 code.
+This package provides a set of tools for debugging python code with GDB, including python code breakpoints.
+GDB breakpoints operate on native shared libraries (C/assembler code). Since python is an interpreted language it's not possible to set python code breakpoints directly from the GDB console.
+In this package python code breakpoints are supported by utilizing a python-c-extension breakpoint-mark function which is accessible from the GDB console. This method requires
+that python code breakpoints are set explictly in the python code.
 
 ## Dependencies
 GDB python: https://wiki.python.org/moin/DebuggingWithGdb
 
 ## Install
 From source:
-```
-git clone https://github.com/ucphhpc/py3gdb.git .
-cd py3gdb.git
-python3 setup.py install
-```
-Copy [.gdbinit](https://github.com/ucphhpc/py3gdb/blob/master/.gdbinit) to `~/.gdbinit`
+`pip install .`
+
+Latest release:
+`pip install pygdb`
+
+Copy [.gdbinit](https://github.com/ucphhpc/pygdb/blob/master/.gdbinit) to `~/.gdbinit`
 
 ## Literature
 https://devguide.python.org/gdb/
@@ -40,7 +40,7 @@ def Test():
 
 __NOTE__: pygdb.breakpoint.set() busy-waits until the python process is attached to the GDB console using the `py-attach` command (see below)
 
-Pygdb breakpoint messages are written to stderr unless a [Python logger](https://docs.python.org/3/library/logging.html) is provided:
+Pygdb breakpoint messages are written to stderr unless a [Python logger](https://docs.python.org/2/library/logging.html) is provided:
 ```
 import logging
 import pygdb.breakpoint
@@ -53,7 +53,7 @@ pygdb.breakpoint.enable(logger=logging.getLogger())
 
 Launch GDB in python-mode from the shell
 
-`$> gdb python3`
+`$> gdb python`
 
 Add source-path if not current shell directory
 

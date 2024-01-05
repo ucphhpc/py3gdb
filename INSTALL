@@ -1,0 +1,25 @@
+Package providing a set of tools for debugging python code with GDB
+
+Tested with Python 3.9.16
+
+Dependencies:
+=============
+gdb python: https://wiki.python.org/moin/DebuggingWithGdb
+C compiler (e.g. gcc), Python development headers,
+
+Install:
+=================
+https://github.com/ucphhpc/py3gdb.git .
+cd py3gdb.git
+python3 setup.py install
+ln -sf .gdbinit ~/
+
+Uninstall:
+=================
+rm -f ~/.gdbinit
+
+Manual delete:
+find /usr/local/lib64 -name '*pygdb*' 
+
+If you feel lucky:
+find /usr/local/lib64 -name '*pygdb*' | xargs rm -rf

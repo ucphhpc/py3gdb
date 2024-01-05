@@ -1,0 +1,10 @@
+Install:
+=================
+1) Enable all repos:
+find /etc/yum.repos.d -type f | xargs sed -i 's/enabled=0/enabled=1/g'
+
+2) Install gdb and python3 debug version as well as python3 debuginfo
+dnf install gdb python3.9-devel python3.9-debug python3.9-debuginfo
+
+3) Make python3 debug version the default python3 interpreter
+cd /usr/bin && ln -sf python3.9d python3 && cd -
